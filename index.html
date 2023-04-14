@@ -122,23 +122,27 @@
         transform: scale(1.2);
       }
     }
-      #button-wrapper {
-        position: fixed;
-        top: 0;
-        left: 0;
-        display: flex;
-      }
-    
-      button {
-        margin-right: 10px;
-        background-color: #9d0ffb;
-        color: white;
-        font-weight: bold;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+    #button-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+    }
+  
+    button {
+      margin-right: 10px;
+      background-color: #9d0ffb;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    button.clicked {
+      background-color: #ff69b4;
+    }
   </style>
 </head>
 
@@ -437,6 +441,19 @@
       }
     }
   }
+  var buttons = document.querySelectorAll("#button-wrapper button");
+      
+        function handleClick(event) {
+          for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("clicked");
+          }
+      
+          event.currentTarget.classList.add("clicked");
+        }
+      
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener("click", handleClick);
+        }
   </script>
   
   

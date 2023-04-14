@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="button-wrapper">
+        <button id="button1">A</button>
+        <button id="button2">N</button>
+        <button id="button3">Y</button>
+        <button id="button4">H</button>
+        <button id="button5">P</button>
+      </div>
+      
+      <style>
+        #button-wrapper {
+          position: fixed;
+          top: 0;
+          left: 0;
+          display: flex;
+        }
+      
+        button {
+          margin-right: 10px;
+          background-color: #9d0ffb;
+          color: white;
+          font-weight: bold;
+          border: none;
+          padding: 10px 15px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      
+        button.clicked {
+          background-color: #ff69b4;
+        }
+      </style>
+      
+      <script>
+        var buttons = document.querySelectorAll("#button-wrapper button");
+      
+        function handleClick(event) {
+          for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("clicked");
+          }
+      
+          event.currentTarget.classList.add("clicked");
+        }
+      
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].addEventListener("click", handleClick);
+        }
+      </script>
+      
+</body>
+</html>
